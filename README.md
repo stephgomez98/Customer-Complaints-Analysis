@@ -285,4 +285,19 @@ return all the complaints that have more than average time to receipt
  select * from complaints_data where time_to_receipt>(
  select avg(time_to_receipt) from complaints_data ) group by product
 ````
+--using having
+````sql
+SELECT 
+    State,
+    COUNT(Complaint_ID) AS TotalComplaints
+FROM 
+    ComplaintsTable
+GROUP BY 
+    State
+HAVING 
+    COUNT(Complaint_ID) > 100;
+````
+--seeing the number of business days (creating a function)
+````sql
 
+````
